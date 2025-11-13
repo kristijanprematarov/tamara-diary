@@ -1,0 +1,80 @@
+:root{
+  --brand-primary:#e37aa9; /* soft pink */
+  --brand-primary-dark:#d66596; /* slightly darker pink */
+  --brand-dark:#2a2a2a;
+  --brand-accent:#ffe6f0; /* very light pink */
+  --brand-gradient: linear-gradient(180deg, #e37aa9 0%, #f6b4cd 100%);
+  /* Bootstrap theme vars */
+  --bs-primary: var(--brand-primary);
+  --bs-primary-rgb: 227, 122, 169;
+  --bs-link-color: var(--brand-primary-dark);
+  --bs-link-hover-color: var(--brand-primary);
+}
+
+.btn-primary{
+  /* Override BS5 button tokens to avoid default blue on hover/active */
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-primary-dark);
+  --bs-btn-hover-border-color: var(--brand-primary-dark);
+  --bs-btn-focus-shadow-rgb: 227,122,169;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--brand-primary-dark);
+  --bs-btn-active-border-color: var(--brand-primary-dark);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--brand-primary);
+  --bs-btn-disabled-border-color: var(--brand-primary);
+  background-color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+.btn-primary:hover{filter:brightness(0.98)}
+.btn-primary:focus{box-shadow:0 0 0 .25rem rgba(227,122,169,.35)}
+
+/* Outline primary in pink, not blue */
+.btn-outline-primary{
+  --bs-btn-color: var(--brand-primary);
+  --bs-btn-border-color: var(--brand-primary);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--brand-primary);
+  --bs-btn-hover-border-color: var(--brand-primary);
+  --bs-btn-focus-shadow-rgb: 227,122,169;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--brand-primary-dark);
+  --bs-btn-active-border-color: var(--brand-primary-dark);
+  color: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+.btn-outline-primary:hover{background-color:var(--brand-primary);border-color:var(--brand-primary);color:#fff}
+.btn-outline-primary:focus{box-shadow:0 0 0 .25rem rgba(227,122,169,.35)}
+
+/* Links in pink, not blue */
+a, .btn-link{color:var(--brand-primary-dark)}
+a:hover, .btn-link:hover{color:var(--brand-primary)}
+
+.navbar, .top-row{background:var(--brand-primary)!important}
+.navbar .navbar-brand, .nav-link{color:#fff!important}
+.card{border:0}
+.card .card-title{font-weight:700}
+
+.hero{
+  background:linear-gradient(180deg,var(--brand-accent),#fff);
+  border-radius:1rem;
+  padding:2rem;
+}
+
+/* Sidebar gradient */
+.page .sidebar{background:var(--brand-gradient)!important}
+.nav-link{opacity:.85}
+.nav-link.active{opacity:1}
+
+/* Product cards */
+.product-card .product-cover{position:relative}
+.product-card img{object-fit:cover;height:360px}
+.price-badge{position:absolute;right:12px;bottom:12px;background:var(--brand-primary-dark);color:#fff;padding:.35rem .6rem;border-radius:.5rem;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+
+/* Replace default focus rings across common controls */
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus{
+  box-shadow:0 0 0 .1rem white, 0 0 0 .25rem rgba(227,122,169,.35) !important;
+}

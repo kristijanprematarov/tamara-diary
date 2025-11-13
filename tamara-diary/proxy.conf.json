@@ -1,0 +1,22 @@
+{
+  "/api": {
+    "target": "http://localhost:5110",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/gallery": {
+    "target": "http://localhost:5110",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/sample-data": {
+    "target": "http://localhost:5110",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/i18n": {
+    "target": "http://localhost:4200",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

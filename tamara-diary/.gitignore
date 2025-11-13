@@ -1,0 +1,150 @@
+# ========================
+# Root .gitignore for solution
+# Projects:
+#  - Angular SPA: tamara-diary/
+#  - .NET 8 Web API: TamaraDiary.API/
+# ========================
+
+# ----- General OS / Editor -----
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.orig
+*.log
+*.tmp
+~$*
+
+# VS Code workspace state (keep settings/extensions if desired)
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# ----- Git / merge tooling -----
+*.diff
+*.patch
+*.rej
+
+# ========================
+# Angular / Node (tamara-diary)
+# ========================
+tamara-diary/node_modules/
+tamara-diary/dist/
+tamara-diary/.angular/cache/
+tamara-diary/out-tsc/
+tamara-diary/.sass-cache/
+tamara-diary/.nyc_output/
+tamara-diary/coverage/
+tamara-diary/tmp/
+tamara-diary/.env*
+
+# Environment override files (keep base env.ts which is source-controlled)
+tamara-diary/src/environments/*.local.ts
+tamara-diary/src/environments/*.dev.local.ts
+tamara-diary/src/environments/*.prod.local.ts
+
+# Angular build artifacts created by various tools
+tamara-diary/.cache/
+tamara-diary/.eslintcache
+tamara-diary/npm-debug.log*
+tamara-diary/yarn-debug.log*
+tamara-diary/yarn-error.log*
+tamara-diary/pnpm-debug.log*
+tamara-diary/package-lock.json
+tamara-diary/pnpm-lock.yaml
+tamara-diary/yarn.lock
+
+# If you prefer locking dependencies, remove above lockfile ignores
+
+# ========================
+# .NET / Visual Studio (TamaraDiary.API)
+# ========================
+TamaraDiary.API/.vs/
+TamaraDiary.API/bin/
+TamaraDiary.API/obj/
+TamaraDiary.API/*/bin/
+TamaraDiary.API/*/obj/
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.userprefs
+
+# Build / publish outputs
+**/PublishProfiles/*
+**/TestResults/
+**/*.Cache
+**/*.dbmdl
+**/*.pdb
+**/*.mdb
+**/*.ilk
+**/*.obj
+**/*.pch
+**/*.ipch
+**/*.rsp
+**/*.tlb
+**/*.tli
+**/*.tlh
+**/*.tmp
+**/*.log
+**/*.vspscc
+**/*.vssscc
+**/*.pidb
+**/*.svclog
+**/*.scc
+
+# NuGet
+*.nupkg
+**/packages/*
+!**/packages/build/
+*.snupkg
+PackageLock.json
+
+# Azure / secrets (if added later)
+TamaraDiary.API/appsettings.*.Local.json
+*.azurepubxml
+*.key
+*.cer
+*.pfx
+*.publishsettings
+
+# Rider / JetBrains
+.idea/
+*.iml
+
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+
+# dotnet tool artifacts
+/.config/dotnet-tools.json
+
+# Coverage (if using coverlet or other)
+coverage.info
+*.coverage
+*.coveragexml
+
+# Logs
+TamaraDiary.API/logs/
+
+# Generated HTTP scratch files (keep the .http if you want them; comment out to track)
+TamaraDiary.API/*.http
+
+# ========================
+# Misc
+# ========================
+*.tgz
+*.zip
+*.7z
+*.tar
+
+# Ignore temporary design assets
+**/design-assets/**
+
+# Uncomment to ignore IDE workspace if not needed
+# .vs/
+

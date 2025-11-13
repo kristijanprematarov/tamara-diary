@@ -1,0 +1,181 @@
+{
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "order": "Order",
+    "gallery": "Gallery",
+    "track": "Track",
+    "admin": "Admin",
+    "weather": "Weather",
+    "instagram": "Instagram"
+  },
+  "home": {
+    "title": "Welcome to TamaraDiary",
+    "subtitle": "Cute custom illustrations, prints, and gifts",
+    "cta": {
+      "shop": "Shop now",
+      "order": "Custom order"
+    }
+  },
+  "shop": {
+    "title": "Shop",
+    "view": "View",
+    "custom": {
+      "title": "Custom Personalized Illustration",
+      "caption": "Have Tamara draw a custom portrait from your photo."
+    }
+  },
+  "product": {
+    "back": "Back to shop",
+    "view": "View",
+    "orderThis": "Order this",
+    "price": "Price",
+    "custom": {
+      "title": "Custom Personalized Illustration",
+      "caption": "Have Tamara draw a custom portrait from your photo."
+    },
+    "bonita": {
+      "title": "No worries Bonita",
+      "caption": "A cute set of notes and prints inspired by Bonita."
+    },
+    "card": {
+      "title": "TamaraDiary Cards",
+      "caption": "A selection of custom cards made by Tamara (min 3)."
+    },
+    "minOrder": "Min order:"
+  },
+  "common": {
+    "loading": "Loading…",
+    "cancel": "Cancel"
+  },
+  "gallery": {
+    "title": "Gallery",
+    "selectCards": "Select cards",
+    "exitSelect": "Exit selection",
+    "selected": "Selected: {{n}}",
+    "orderSelected": "Order selected",
+    "clickToView": "Click to view"
+    ,"selectThis": "Select this"
+  ,"bonitaTitle": "A little art, lots of love — your unique greeting is here 🤎"
+  ,"bonitaDesc": "Choose 5 cards from the No worries Bonita designs and order a set:"
+    ,"bonitaItem1": "5 cards (premium 350gsm paper)"
+    ,"bonitaItem2": "5 envelopes"
+    ,"bonitaItem3": "5 stamps"
+  },
+  "order": {
+    "title": "Place an order",
+    "requiredNote": "Required fields are marked with *",
+    "fieldRequired": "This field is required",
+    "emailInvalid": "Please enter a valid email address",
+    "name": "Your name",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "address": "Delivery address",
+    "email": "Email",
+  "phone": "Phone",
+    "instagram": "Instagram (optional)",
+    "type": "What would you like?",
+    "quantity": "Quantity",
+    "notes": "Notes",
+    "item": {
+      "custom": "Custom Personalized Illustration",
+      "tamaraDiaryCard": "TamaraDiary Cards",
+    "sticker_pack": "No worries Bonita"
+    },
+    "minimum": "Minimum order:",
+    "referencePhotos": "Reference photos",
+    "referenceRequired": "A reference photo is required",
+  "priceBreakdown": "Price breakdown",
+  "unitPrice": "Unit price:",
+  "subtotal": "Total",
+    "submit": "Create order",
+    "created": "Order created! Include this code in messages:",
+    "preselected": "(preselected)"
+    ,"selectedCards": "Selected cards: {{n}}"
+    ,"remove": "Remove"
+    ,"removeConfirmTitle": "Remove item?"
+    ,"removeConfirm": "Are you sure you want to remove this item from your order? If this reduces the selected items below the required minimum, you'll be returned to the gallery to choose replacements."
+    ,"removeConfirmYes": "Remove"
+  },
+  "copyPrompt": "Copy this code (select and Ctrl+C if needed)",
+  "removeConfirm": "Remove selected item?",
+  "selectedCards": "Selected items: {{n}}",
+  "remove": "Remove",
+  "track": {
+    "title": "Track order",
+    "placeholder": "Enter order code (e.g., 250826-1234)",
+    "button": "Track",
+    "selectedCards": "Selected cards",
+    "logs": "Logs",
+    "customer": "Customer",
+    "coverAlt": "Order cover",
+    "estimated": "Estimated delivery",
+    "estimatedBetween": "Estimated between",
+    "estimatedAnd": "and",
+    "estimatedOn": "Estimated on",
+    "etaMissing": "We’ll notify you when the estimated delivery date is available.",
+    "notFound": "No such tracking code for an order"
+  }
+  ,
+  "trackDetails": {
+    "selectedCardsLabel": "Selected cards (preview)"
+  }
+  ,
+  
+  "status": {
+    "created": "Created",
+    "accepted": "Accepted",
+  "inprogress": "In progress",
+    "packaging": "Packaging",
+    "delivering": "Delivering",
+    "delivered": "Delivered",
+    "rejected": "Rejected",
+    "customPortraitOrder": {
+      "note": "Customer provided reference photo(s) for a custom portrait"
+    }
+  },
+  "log": {
+    "created": "Created",
+    "rejected": "Rejected",
+    "etaUpdated": "Estimated date of arrival updated",
+    "statusChanged": "Status changed"
+  }
+  ,
+  
+  "adminGateway": {
+    "title": "Admin access",
+    "placeholder": "Enter passcode",
+    "enter": "Enter",
+    "invalid": "Invalid passcode"
+  },
+  "admin": {
+    "accessDenied": "Admin access required",
+    "accessMessage": "You must authenticate to access administrative features.",
+    "gateway": "Admin gateway",
+  "panel": "Admin panel",
+  "orderedProduct": "Ordered product",
+  "orGateway": "Or use the admin gateway",
+    "placeholder": {
+      "code": "Enter order code",
+      "date": "DD/MM/YYYY"
+    },
+    "load": "Load",
+    "order": "Order",
+    "statusLabel": "Status",
+  "singleDay": "Single day",
+  "estimatedDelivery": "Estimated delivery",
+  "logs": "Activity log",
+  "noLogs": "No logs for this order",
+  "download": "Download",
+    "betweenStart": "Between (start)",
+    "betweenEnd": "Between (end)",
+    "uploadedPhotos": "Reference photos",
+    "photoAlt": "photo",
+    "uploadLabel": "Upload files",
+    "upload": "Upload",
+    "saveStatus": "Save status",
+    "rejectionReason": "Rejection reason",
+    "save": "Save",
+    "success": "Saved"
+  }
+}

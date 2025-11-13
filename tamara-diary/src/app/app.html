@@ -1,0 +1,207 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style>
+  :host {
+    --brand-primary: #e37aa9;
+    --brand-primary-dark: #d66596;
+    --brand-dark: #2a2a2a;
+    --brand-accent: #ffe6f0;
+    --brand-gradient: linear-gradient(180deg, #e37aa9 0%, #f6b4cd 100%);
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .page {
+    min-height: 100vh;
+    background: #fff;
+  }
+  .sidebar {
+    width: 260px;
+    background: var(--brand-gradient);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    position: fixed; /* keep sidebar fixed to the left */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 2000;
+    overflow: auto;
+  }
+  .top-row {
+    height: 56px;
+    background: var(--brand-primary)!important;
+    box-shadow: none;
+    display: flex;
+    align-items: center;
+    padding-left: 1.5rem;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+  .navbar-brand {
+    color: #fff !important;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+  }
+  .nav-scrollable {
+    flex: 1;
+    padding-bottom: 2rem;
+    /* do not show independent scrollbars in the sidebar - let the page scroll */
+    overflow: visible;
+  }
+  .menu {
+    margin-top: 1.5rem;
+    gap: .5rem;
+  }
+  .nav-link {
+    color: #fff!important;
+    font-size: 1.08rem;
+    padding: .7rem 1.2rem;
+    border-radius: 8px;
+    transition: background .2s;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    opacity: .85;
+  }
+  .nav-link.router-link-active, .nav-link.active, .nav-link:hover {
+    background: rgba(255,255,255,0.18);
+    color: #fff!important;
+    opacity: 1;
+  }
+  .switches {
+    display: flex;
+    gap: .5rem;
+    justify-content: center;
+  }
+  .btn {
+    background: none;
+    border: 1px solid #fff2;
+    color: #fff;
+    border-radius: 6px;
+    padding: .3rem .9rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background .2s, color .2s;
+  }
+  .btn-hamburger{ display:none; background:none; border:none; color:#fff; font-size:1.25rem; cursor:pointer }
+  .btn.active, .btn:hover {
+    background: #fff2;
+    color: #fff;
+  }
+  .content {
+    width: 100%;
+    max-width: 1100px;
+    margin: 2rem auto;
+    /* leave room for fixed sidebar */
+    margin-left: 260px;
+    background: var(--brand-accent);
+    box-shadow: 0 2px 14px rgba(227,122,169,.08);
+    border-radius: 1rem;
+    padding: 2rem 2rem 1.5rem 2rem;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  @media (max-width: 900px) {
+    /* On tablet and smaller we show a top bar + hamburger menu */
+    .sidebar { position: relative; width: 100vw; min-height: 54px; flex-direction: row; }
+    /* allow the absolutely-positioned dropdown to escape the sidebar box
+       instead of being clipped by the sidebar's desktop overflow:auto */
+    .sidebar.mobile-open { overflow: visible; }
+    .top-row { padding-left: .75rem; font-size: 1rem; justify-content: space-between }
+    .content { padding: 1rem; margin: 1rem; margin-left: 0; }
+    .navbar-brand { font-size: 1rem; }
+    .nav-link { font-size: .95rem; padding: .5rem .7rem; }
+    .btn-hamburger{ display:inline-block }
+    /* Use an accordion-style dropdown animated by max-height and opacity
+       instead of toggling display (cannot be animated). This makes the
+       menu expand top->bottom and avoids left/right shifting. */
+    .nav-scrollable{
+      max-height: 0;
+      /* hide overflow while collapsed so animation is clean */
+      overflow: hidden;
+      transition: max-height .28s ease, opacity .18s ease;
+      opacity: 0;
+    }
+    .sidebar.mobile-open .nav-scrollable{
+      /* expanded state: occupy full width below the top-row
+         show content without an inner scrollbar (allow the page to scroll)
+         so the menu itself doesn't scroll independently. */
+      max-height: calc(100vh - 54px);
+      opacity: 1;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 54px;
+      z-index: 9999;
+      overflow: visible; /* no inner scrollbar */
+      background: var(--brand-gradient);
+      padding-bottom: 2rem;
+    }
+  }
+  @media (max-width: 650px) {
+    /* Small screens: keep top bar, but ensure nav shows horizontally when expanded */
+    .page { flex-direction: column; }
+    .sidebar { position: relative; width: 100vw; min-height: 54px; flex-direction: row; }
+    .nav-scrollable { flex-direction: column; }
+    .content { padding: .5rem; margin: .5rem; margin-left: 0; }
+  }
+  /* Reduce flicker by promoting the content to its own compositing layer
+     and hinting the browser to preserve rendering during quick route swaps. */
+  .content {
+    will-change: transform, opacity;
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+</style>
+
+
+
+<div class="page">
+  <!-- data-menu-open helps debugging: shows 'true'/'false' on the element for quick inspection in devtools -->
+  <div class="sidebar" [class.mobile-open]="menuOpen()" [attr.data-menu-open]="menuOpen() ? 'true' : 'false'">
+    <div class="top-row ps-3 navbar navbar-dark">
+      <div class="container-fluid" style="display:flex;align-items:center;gap:.5rem;">
+  <button class="btn-hamburger" (click)="toggleMenu()" aria-label="Toggle menu">{{ menuOpen() ? '✕' : '☰' }}</button>
+        <a class="navbar-brand" routerLink="/">TamaraDiary</a>
+      </div>
+    </div>
+    <div class="nav-scrollable">
+      <nav class="nav flex-column menu">
+        <a routerLink="/" routerLinkActive="router-link-active" class="nav-link" (click)="closeMenu()"><i class="bi bi-house-door-fill me-2"></i> {{ 'nav.home' | translate }}</a>
+        <a routerLink="/shop" routerLinkActive="router-link-active" class="nav-link" (click)="closeMenu()"><i class="bi bi-basket2-fill me-2"></i> {{ 'nav.shop' | translate }}</a>
+        <a routerLink="/track" routerLinkActive="router-link-active" class="nav-link" (click)="closeMenu()"><i class="bi bi-truck-front-fill me-2"></i> {{ 'nav.track' | translate }}</a>
+        <a routerLink="/gallery" routerLinkActive="router-link-active" class="nav-link" (click)="closeMenu()"><i class="bi bi-images me-2"></i> {{ 'nav.gallery' | translate }}</a>
+        <a href="https://www.instagram.com/tamara_diary/" target="_blank" class="nav-link" (click)="closeMenu()"><i class="bi bi-instagram me-2"></i> {{ 'nav.instagram' | translate }}</a>
+        <a routerLink="/admin" routerLinkActive="router-link-active" class="nav-link" (click)="closeMenu()"><i class="bi bi-shield-lock-fill me-2"></i> {{ 'nav.admin' | translate }}</a>
+      </nav>
+      <div class="switches p-3">
+        <button class="btn" [class.active]="currentLang==='en'" (click)="setLang('en')">EN</button>
+        <button class="btn" [class.active]="currentLang==='mk'" (click)="setLang('mk')">MK</button>
+      </div>
+    </div>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;min-height:100vh;">
+    <div class="top-row"></div>
+    <div style="flex:1;display:flex;justify-content:center;align-items:flex-start;">
+      <article class="content">
+        <router-outlet></router-outlet>
+        <td-loading-overlay></td-loading-overlay>
+      </article>
+    </div>
+  </div>
+</div>

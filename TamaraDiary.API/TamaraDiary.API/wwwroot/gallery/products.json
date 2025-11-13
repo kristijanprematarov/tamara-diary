@@ -1,0 +1,33 @@
+[
+  {
+    "id": "bonita-notes",
+  "title": "No worries Bonita",
+    "priceEur": 18,
+    "images": [
+      "gallery/382813056_333753519022742_7464729816314830074_n.jpg",
+      "gallery/490449669_18015255026687895_8569760176709697614_n.jpg",
+      "gallery/490481012_18015057899687895_3048460460599320948_n.jpg"
+    ],
+    "caption": "A cute set of notes and prints inspired by Bonita."
+  },
+  {
+    "id": "sticker-fun",
+    "title": "Sticker Fun",
+    "priceEur": 8,
+    "images": [
+      "gallery/498127528_18018346892687895_2130764837390747243_n.jpg",
+      "gallery/500803582_18019135838687895_9021239183871402129_n.jpg",
+      "gallery/521358218_18025369304687895_1730642673863577084_n.jpg"
+    ],
+    "caption": "Playful sticker pack with original TamaraDiary illustrations."
+  },
+  {
+    "id": "custom-portrait",
+    "title": "Custom Portrait",
+    "priceEur": 35,
+    "images": [
+      "gallery/tamara.jpg"
+    ],
+    "caption": "Personalized illustration made just for you or your loved ones."
+  }
+]

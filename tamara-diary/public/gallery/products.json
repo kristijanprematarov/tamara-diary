@@ -1,0 +1,32 @@
+[
+  {
+    "id": "bonita-notes",
+  "title": "product.bonita.title",
+    "priceEur": 16.2601626,
+    "images": [
+      "gallery/382813056_333753519022742_7464729816314830074_n.jpg",
+      "gallery/490449669_18015255026687895_8569760176709697614_n.jpg",
+      "gallery/490481012_18015057899687895_3048460460599320948_n.jpg"
+    ],
+    "caption": "product.bonita.caption"
+  },
+  {
+    "id": "custom-portrait",
+  "title": "product.custom.title",
+    "priceEur": 16.2601626,
+    "images": [
+      "gallery/tamara.jpg"
+    ],
+    "caption": "product.custom.caption"
+  },
+  {
+    "id": "card-pack",
+  "title": "product.card.title",
+    "priceEur": 4.87804878,
+    "minQty": 3,
+    "images": [
+      "gallery/382813056_333753519022742_7464729816314830074_n.jpg"
+    ],
+    "caption": "product.card.caption"
+  }
+]
