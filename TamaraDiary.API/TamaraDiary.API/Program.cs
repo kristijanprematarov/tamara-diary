@@ -46,6 +46,9 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
+// Serve Angular static files from wwwroot
+var angularDistPath = app.Environment.WebRootPath ?? "wwwroot";
+
 // Swagger in development
 if (app.Environment.IsDevelopment())
 {
@@ -56,7 +59,15 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Serve static files from API's own wwwroot if present
-app.UseStaticFiles();
+app.UseDefaultFiles(new DefaultFilesOptions {
+    FileProvider = new PhysicalFileProvider(angularDistPath),
+    RequestPath = ""
+});
+app.UseStaticFiles(new StaticFileOptions {
+    FileProvider = new PhysicalFileProvider(angularDistPath),
+    RequestPath = "",
+    OnPrepareResponse = StaticFiles.Options.OnPrepareResponse
+});
 
 // Optionally also serve static content from an external folder (the old Blazor wwwroot)
 // Configure path in appsettings: "StaticContent:ExternalRoot"
@@ -76,4 +87,31 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+// Fallback to Angular index.html for SPA routes
+app.MapFallback(context =>
+{
+    context.Response.ContentType = "text/html";
+    var indexPath = Path.Combine(angularDistPath, "index.html");
+    return context.Response.SendFileAsync(indexPath);
+});
+
 app.Run();
+
+public static class StaticFiles
+{
+    public static readonly StaticFileOptions Options = new()
+    {
+        OnPrepareResponse = ctx =>
+        {
+            //var headers = ctx.Context.Response.GetTypedHeaders();
+            //headers.CacheControl = new CacheControlHeaderValue
+            //{
+            //    Public = true,
+            //    MaxAge = ctx.File.Name == "index.html" ? TimeSpan.FromDays(1) : TimeSpan.FromDays(30)
+            //};
+            ctx.Context.Response.Headers["Cache-Control"] = "no-store, no-cache, must-revalidate";
+            ctx.Context.Response.Headers["Pragma"] = "no-cache";
+            ctx.Context.Response.Headers["Expires"] = "0";
+        }
+    };
+}
