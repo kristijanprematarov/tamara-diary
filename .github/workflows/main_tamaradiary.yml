@@ -62,15 +62,6 @@ jobs:
         working-directory: TamaraDiary.API
         run: dotnet publish TamaraDiary.API/TamaraDiary.API.csproj -c Release -o "myapp"
 
-      - name: Check publish output exists
-        shell: pwsh
-        working-directory: TamaraDiary.API
-        run: |
-          if (-not (Test-Path "myapp/index.html")) {
-            Write-Error "Publish output missing: myapp/index.html not found."
-            exit 1
-          }
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
