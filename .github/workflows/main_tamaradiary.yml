@@ -18,16 +18,50 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: tamara-diary/package-lock.json
+
+      - name: Install dependencies (Angular)
+        working-directory: tamara-diary
+        run: npm ci
+
+      - name: Build Angular app
+        working-directory: tamara-diary
+        run: npm run build -- --configuration production
+
+      - name: Copy Angular dist to API wwwroot
+        shell: pwsh
+        run: |
+          $distRoot = "tamara-diary/dist/tamara-diary"
+          $distBrowser = Join-Path $distRoot "browser"
+          if (Test-Path $distBrowser) {
+            $src = $distBrowser
+          } elseif (Test-Path $distRoot) {
+            $src = $distRoot
+          } else {
+            Write-Error "Angular dist folder not found at $distRoot or $distBrowser"
+          }
+          $dest = "TamaraDiary.API/wwwroot"
+          if (-not (Test-Path $dest)) { New-Item -ItemType Directory -Path $dest | Out-Null }
+          Write-Host "Copying from $src to $dest"
+          Copy-Item -Path (Join-Path $src '*') -Destination $dest -Recurse -Force
+
       - name: Set up .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '10.x'
 
-      - name: Build with dotnet
-        run: dotnet build --configuration Release
+      - name: Build with dotnet (API solution)
+        working-directory: TamaraDiary.API
+        run: dotnet build TamaraDiary.API.sln --configuration Release
 
-      - name: dotnet publish
-        run: dotnet publish -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+      - name: dotnet publish (API project)
+        working-directory: TamaraDiary.API
+        run: dotnet publish TamaraDiary.API/TamaraDiary.API.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
