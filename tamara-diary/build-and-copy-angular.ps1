@@ -1,6 +1,8 @@
 # Build Angular app and copy output to API wwwroot
+
+# Build Angular app and copy output to API wwwroot/browser
 param(
-    [string]$ApiRoot = "..\TamaraDiary.API\TamaraDiary.API\wwwroot"
+    [string]$ApiBrowser = "..\TamaraDiary.API\TamaraDiary.API\wwwroot\browser"
 )
 
 Write-Host "Building Angular app..."
@@ -19,7 +21,7 @@ if (Test-Path $distBrowser) {
     exit 1
 }
 
-Write-Host "Copying built files from $src to $ApiRoot..."
-if (-not (Test-Path $ApiRoot)) { New-Item -ItemType Directory -Path $ApiRoot | Out-Null }
-Copy-Item -Path (Join-Path $src '*') -Destination $ApiRoot -Recurse -Force
+Write-Host "Copying built files from $src to $ApiBrowser..."
+if (-not (Test-Path $ApiBrowser)) { New-Item -ItemType Directory -Path $ApiBrowser | Out-Null }
+Copy-Item -Path (Join-Path $src '*') -Destination $ApiBrowser -Recurse -Force
 Write-Host "Done."

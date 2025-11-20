@@ -46,8 +46,8 @@ builder.Services.AddCors(options =>
 
 var app = builder.Build();
 
-// Serve Angular static files from wwwroot
-var angularDistPath = app.Environment.WebRootPath ?? "wwwroot";
+// Serve Angular static files from wwwroot/browser
+var angularDistPath = Path.Combine(app.Environment.WebRootPath ?? "wwwroot", "browser");
 
 // Swagger in development
 if (app.Environment.IsDevelopment())
@@ -59,6 +59,10 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Serve static files from API's own wwwroot if present
+// Serve general static files from wwwroot (for /gallery, /css, etc.)
+app.UseStaticFiles();
+
+// Serve Angular app from wwwroot/browser at root
 app.UseDefaultFiles(new DefaultFilesOptions {
     FileProvider = new PhysicalFileProvider(angularDistPath),
     RequestPath = ""

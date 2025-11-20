@@ -12,9 +12,4 @@
     <PackageReference Include="System.IO.Abstractions" Version="21.0.30" />
   </ItemGroup>
 
-    <!-- Ensure all static files in wwwroot are published -->
-    <ItemGroup>
-      <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
-    </ItemGroup>
-
 </Project>

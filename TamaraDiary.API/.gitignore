@@ -97,6 +97,9 @@ TamaraDiary.API/*/obj/
 **/*.svclog
 **/*.scc
 
+# Ignore Angular build output in wwwroot/browser (generated at build time)
+**/wwwroot/browser/
+
 # NuGet
 *.nupkg
 **/packages/*

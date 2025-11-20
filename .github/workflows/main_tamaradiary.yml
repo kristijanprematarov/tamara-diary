@@ -31,7 +31,7 @@ jobs:
         working-directory: tamara-diary
         run: npm run build -- --configuration production
 
-      - name: Copy Angular dist to API wwwroot
+      - name: Copy Angular dist to API wwwroot/browser
         shell: pwsh
         run: |
           $distRoot = "tamara-diary/dist/tamara-diary"
@@ -42,8 +42,9 @@ jobs:
             $src = $distRoot
           } else {
             Write-Error "Angular dist folder not found at $distRoot or $distBrowser"
+            exit 1
           }
-          $dest = "TamaraDiary.API/wwwroot"
+          $dest = "TamaraDiary.API/wwwroot/browser"
           if (-not (Test-Path $dest)) { New-Item -ItemType Directory -Path $dest | Out-Null }
           Write-Host "Copying from $src to $dest"
           Copy-Item -Path (Join-Path $src '*') -Destination $dest -Recurse -Force
