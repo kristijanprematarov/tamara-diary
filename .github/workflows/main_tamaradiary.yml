@@ -59,13 +59,13 @@ jobs:
 
       - name: dotnet publish (API project)
         working-directory: TamaraDiary.API
-        run: dotnet publish TamaraDiary.API/TamaraDiary.API.csproj -c Release -o "${{env.DOTNET_ROOT}}/myapp"
+        run: dotnet publish TamaraDiary.API/TamaraDiary.API.csproj -c Release -o "TamaraDiary.API/myapp"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: .net-app
-          path: ${{env.DOTNET_ROOT}}/myapp
+          path: TamaraDiary.API/myapp
 
   deploy:
     runs-on: windows-latest
@@ -93,5 +93,5 @@ jobs:
         with:
           app-name: 'tamaradiary'
           slot-name: 'Production'
-          package: .
+          package: TamaraDiary.API/myapp
           
