@@ -44,7 +44,7 @@ jobs:
             Write-Error "Angular dist folder not found at $distRoot or $distBrowser"
             exit 1
           }
-          $dest = "TamaraDiary.API/wwwroot/browser"
+          $dest = "TamaraDiary.API/TamaraDiary.API/wwwroot/browser"
           if (-not (Test-Path $dest)) { New-Item -ItemType Directory -Path $dest | Out-Null }
           Write-Host "Copying from $src to $dest"
           Copy-Item -Path (Join-Path $src '*') -Destination $dest -Recurse -Force
